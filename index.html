@@ -1,0 +1,348 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Bistrouille — restaurant & bistrot à Houilles | Cuisine maison & vins d’exception</title>
+  <meta name="description" content="Bistrouille, restaurant & bistrot à Houilles. Cuisine maison, produits de saison, belle carte des vins. Ouvert du mardi au samedi, 8h–22h. Réservation en ligne.">
+  <link rel="canonical" href="https://exemple.com/"/>
+  <link rel="preconnect" href="https://images.unsplash.com" crossorigin>
+  <style>
+    :root{--brown:#6b4b3e;--brown-700:#5a3f34;--cream:#f6f1ea;--wine:#7b1e2b;--ink:#1c1b1a;--muted:#7a7672;--card:#fff;--radius:18px;--shadow:0 10px 25px rgba(0,0,0,.08);--container:1100px}
+    *,*::before,*::after{box-sizing:border-box}
+    html,body{margin:0;padding:0}
+    body{font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji"; color:var(--ink); background:var(--cream)}
+    img{max-width:100%; display:block}
+    a{color:var(--wine); text-decoration:none}
+    :focus-visible{outline:2px solid var(--wine); outline-offset:2px}
+    .container{width:min(var(--container),92vw); margin-inline:auto}
+    .grid{display:grid; gap:18px}
+    .grid--2{grid-template-columns:1fr 1fr}
+    .grid--3{grid-template-columns:repeat(3,1fr)}
+    @media(max-width:900px){.grid--2,.grid--3{grid-template-columns:1fr}}
+    .card{background:var(--card); border-radius:var(--radius); box-shadow:var(--shadow); padding:22px}
+    .btn{display:inline-flex; align-items:center; gap:10px; padding:12px 16px; border-radius:14px; font-weight:700; border:2px solid transparent; cursor:pointer}
+    .btn--primary{background:var(--wine); color:#fff}
+    .btn--ghost{background:#fff; color:var(--ink); border-color:rgba(0,0,0,.08)}
+    .tag{display:inline-block; background:rgba(123,30,43,.09); color:var(--wine); padding:6px 10px; border-radius:999px; font-size:12px; font-weight:700}
+    .section-title{font-size:26px; margin:0 0 18px; color:var(--brown)}
+    /* Header */
+    .header{position:sticky; top:0; z-index:50; background:rgba(246,241,234,.85); backdrop-filter:blur(8px); border-bottom:1px solid rgba(0,0,0,.06)}
+    .header__inner{display:flex; align-items:center; justify-content:space-between; padding:14px 0}
+    .brand{display:flex; gap:12px; align-items:center}
+    .brand__logo{width:40px; height:40px; border-radius:12px; background:linear-gradient(135deg,var(--brown),var(--brown-700)); box-shadow:var(--shadow)}
+    .brand__title{font-size:18px; letter-spacing:.4px; margin:0; color:var(--brown)}
+    .nav{display:flex; gap:22px}
+    .nav__list{display:flex; gap:22px; list-style:none; margin:0; padding:0}
+    .nav__link{font-weight:600; color:var(--ink)}
+    .toolbar{display:flex; gap:12px; align-items:center}
+    .phone{display:inline-flex; align-items:center; gap:8px; font-weight:800; color:var(--ink)}
+    .phone svg{width:18px;height:18px}
+    .iconbtn{display:inline-flex; align-items:center; justify-content:center; width:38px; height:38px; border-radius:12px; background:#fff; border:1px solid rgba(0,0,0,.08); box-shadow:var(--shadow)}
+    .iconbtn svg{width:18px;height:18px}
+    .burger{display:none; flex-direction:column; gap:4px; background:none; border:0}
+    .burger span{width:24px; height:2px; background:var(--ink)}
+    @media(max-width:900px){.nav{display:none}.burger{display:flex}}
+    .drawer{position:fixed; top:60px; right:4vw; width:min(520px,92vw); background:var(--card); border-radius:16px; box-shadow:var(--shadow); display:none}
+    .drawer--open{display:block}
+    .drawer ul{list-style:none; margin:0; padding:16px}
+    .drawer li{border-bottom:1px solid rgba(0,0,0,.06)}
+    .drawer a{display:block; padding:14px 4px; color:var(--ink); font-weight:600}
+    /* Hero */
+    .hero{position:relative; margin-top:8px}
+    .hero__wrap{position:relative; overflow:hidden; border-radius:24px; box-shadow:var(--shadow)}
+    .hero__media{min-height:70vh; background-size:cover; background-position:center; background-image:linear-gradient(180deg, rgba(107,75,62,.12), rgba(0,0,0,.55)), url('https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=1600&q=80')}
+    .hero__content{position:absolute; inset:auto 0 0 0; padding:28px; display:grid; gap:12px; color:#fff; text-shadow:0 2px 12px rgba(0,0,0,.28)}
+    .hero__title{margin:0; font-size:clamp(26px,4vw,44px); line-height:1.1}
+    .hero__subtitle{margin:0; font-size:clamp(14px,2vw,18px)}
+    .hero__ctas{display:flex; gap:12px; flex-wrap:wrap; margin-top:8px}
+    .downwrap{display:flex; justify-content:center; margin-top:8px}
+    .down{background:#fff; border:2px solid var(--wine); color:var(--wine); border-radius:999px; padding:10px 14px; display:inline-flex; align-items:center; gap:10px; font-weight:800; box-shadow:var(--shadow)}
+    .down svg{width:18px;height:18px}
+    /* Présentation */
+    section{padding:48px 0}
+    .chip{display:inline-flex; align-items:center; gap:10px; padding:8px 12px; border:1px dashed rgba(0,0,0,.12); border-radius:999px; background:#fff}
+    /* Menu */
+    .promo{display:grid; grid-template-columns:140px 1fr auto; align-items:center; gap:16px; padding:18px; border:2px dashed var(--wine); border-radius:16px; background:linear-gradient(90deg, rgba(123,30,43,.08), rgba(123,30,43,.02))}
+    .promo__thumb{width:140px; height:100px; border-radius:10px; overflow:hidden}
+    .promo__badge{background:var(--wine); color:#fff; padding:10px 14px; border-radius:12px; font-weight:900}
+    .menu-item{display:grid; grid-template-columns:120px 1fr auto; gap:14px; align-items:center; padding:12px 0; border-bottom:1px dashed rgba(0,0,0,.08)}
+    .menu-item__thumb{width:120px; height:96px; border-radius:12px; overflow:hidden; background:#ddd}
+    .menu-item__name{font-weight:800}
+    .menu-item__desc{color:var(--muted); font-size:14px; margin-top:4px}
+    .menu-item__price{font-weight:800; color:var(--wine)}
+    /* Vins */
+    .wines__row{align-items:stretch}
+    .wine{display:grid; grid-template-columns:90px 1fr auto auto; gap:12px; align-items:center; padding:10px 0; border-bottom:1px dashed rgba(0,0,0,.08)}
+    .wine__thumb{width:90px; height:90px; border-radius:10px; overflow:hidden; background:#ddd}
+    .wine__prices{display:flex; gap:12px; white-space:nowrap}
+    /* Social wall */
+    .social{display:grid; grid-template-columns:1fr 1fr; gap:18px}
+    .post{background:#fff; border-radius:16px; box-shadow:var(--shadow); overflow:hidden}
+    .post__img{aspect-ratio:1/1; object-fit:cover}
+    .post__meta{display:flex; align-items:center; justify-content:space-between; padding:10px 12px}
+    .post__tag{font-weight:700; font-size:12px; color:var(--wine)}
+    /* Galerie */
+    .gallery__controls{display:flex; justify-content:space-between; margin-bottom:8px}
+    .gbtn{border:1px solid rgba(0,0,0,.12); background:#fff; border-radius:10px; padding:8px 10px}
+    .gallery__row{overflow-x:auto; display:grid; grid-auto-flow:column; grid-auto-columns:160px; gap:8px}
+    .thumb{aspect-ratio:1/1; border-radius:12px; background:#ddd; cursor:pointer; overflow:hidden}
+    .featured{margin-top:12px; aspect-ratio:16/9; border-radius:14px; overflow:hidden; background:#000; display:none}
+    /* Form */
+    form{display:grid; gap:12px}
+    label{display:grid; gap:6px; font-weight:600}
+    input,select,textarea{padding:12px 14px; border:1px solid rgba(0,0,0,.14); border-radius:12px; background:#fff; font:inherit}
+    .row{display:grid; grid-template-columns:1fr 1fr; gap:12px}
+    .consent{display:flex; align-items:flex-start; gap:10px; font-size:14px}
+    .error{border-color:#c0392b}
+    .help{font-size:12px; color:#c0392b}
+    /* Footer */
+    .footer{padding:36px 0; border-top:1px solid rgba(0,0,0,.08)}
+    .footer__cols{display:grid; grid-template-columns:2fr 1fr 1fr; gap:18px}
+    @media(max-width:900px){.footer__cols{grid-template-columns:1fr}}
+    .muted{color:var(--muted); font-size:14px}
+    .footer-links a{margin-right:12px}
+  </style>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Restaurant","name":"Bistrouille","address":{"@type":"PostalAddress","streetAddress":"Rue Gabriel Péri","addressLocality":"Houilles","postalCode":"78800","addressCountry":"FR"},"telephone":"+33123456789","servesCuisine":"Française","openingHours":"Tu-Sa 08:00-22:00","sameAs":["https://instagram.com/","https://facebook.com/"]}</script>
+</head>
+<body>
+  <header class="header" role="banner">
+    <div class="container header__inner">
+      <a class="brand" href="#top"><div class="brand__logo" aria-hidden="true"></div><h1 class="brand__title">bistrouille</h1></a>
+      <nav class="nav" aria-label="Navigation principale">
+        <ul class="nav__list">
+          <li><a class="nav__link" href="#menu">La carte</a></li>
+          <li><a class="nav__link" href="#galerie">Galerie</a></li>
+          <li><a class="nav__link" href="#evenements">Événements</a></li>
+          <li><a class="nav__link" href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+      <div class="toolbar">
+        <a class="iconbtn" href="#" aria-label="Instagram" title="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" xmlns="http://www.w3.org/2000/svg"><rect x="3" y="3" width="18" height="18" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+        <a class="iconbtn" href="#" aria-label="Facebook" title="Facebook"><svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M22 12.06C22 6.503 17.523 2 12 2S2 6.503 2 12.06C2 17.08 5.657 21.245 10.438 22v-7.01H7.898v-2.93h2.54V9.845c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.196 2.238.196v2.47h-1.26c-1.243 0-1.63.774-1.63 1.568v1.878h2.773l-.443 2.93h-2.33V22C18.343 21.245 22 17.08 22 12.06Z"/></svg></a>
+        <a class="phone" href="tel:+33123456789" title="Appeler"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" xmlns="http://www.w3.org/2000/svg"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.9.3 1.77.56 2.61a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.47-1.11a2 2 0 0 1 2.11-.45c.84.26 1.71.44 2.61.56A2 2 0 0 1 22 16.92z"/></svg><span>01&nbsp;23&nbsp;45&nbsp;67&nbsp;89</span></a>
+        <a class="btn btn--primary" href="#reservation">Réserver</a>
+        <button class="burger" aria-label="Ouvrir le menu" aria-controls="drawer" aria-expanded="false"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+    <div id="drawer" class="drawer" aria-hidden="true">
+      <ul>
+        <li><a href="#menu">La carte</a></li>
+        <li><a href="#galerie">Galerie</a></li>
+        <li><a href="#evenements">Événements</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><a href="#reservation">Réserver</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero" aria-label="Mise en avant">
+      <div class="container hero__wrap">
+        <div class="hero__media"></div>
+        <div class="hero__content">
+          <h2 class="hero__title">Bistrouille, le vrai bistrot parisien, mais à Houilles.</h2>
+          <p class="hero__subtitle">Cuisine maison & vins d’exception, ouvert du mardi au samedi. Des moments de convivialité, pour un café, un déjeuner ou un dîner, de 8h à 22h.</p>
+          <div class="hero__ctas"><a href="#reservation" class="btn btn--primary">Réserver une table</a><a href="#menu" class="btn btn--ghost">Découvrir la carte</a></div>
+        </div>
+      </div>
+    </section>
+    <div class="container downwrap"><a class="down" href="#presentation" title="Découvrir bistrouille"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg><span>Découvrir le bistrot</span></a></div>
+
+    <section id="presentation" aria-labelledby="presentation-title">
+      <div class="container grid grid--2">
+        <article class="card">
+          <span class="tag">Un lieu de rencontre à Houilles</span>
+          <h2 id="presentation-title" class="section-title">bistrouille</h2>
+          <p>Le Bistrouille, un bistrot parisien, mais à Houilles ! Bistrot‑restaurant de quartier, ouvert du <strong>mardi au samedi</strong>, de <strong>8h à 22h</strong>. Un café le matin pour bien démarrer la journée, un déjeuner entre collègues, un dîner entre amis — on y vient pour bien manger, bien boire, et surtout se retrouver dans un cadre convivial. La cuisine est maison, les produits de saison, les vins sont soigneusement sélectionnés, et le service est attentionné. Au plaisir de vous y retrouver !</p>
+          <div class="grid grid--2" style="margin-top:10px"><div class="chip">Ouvert <strong>8h–22h</strong>, <strong>mardi → samedi</strong></div><div class="chip"><strong>Café</strong>, <strong>déjeuner</strong> & <strong>dîner</strong></div></div>
+          <div class="grid grid--2" style="margin-top:12px">
+            <a class="btn btn--ghost" href="tel:+33123456789">Appeler — 01 23 45 67 89</a>
+            <a class="btn btn--ghost" href="#reservation">Réserver une table</a>
+            <a class="btn btn--ghost" href="#menu">Découvrir la carte</a>
+            <div style="display:flex;gap:10px;align-items:center">
+              <a aria-label="Instagram" href="#">Instagram</a>
+              <a aria-label="Facebook" href="#">Facebook</a>
+            </div>
+          </div>
+        </article>
+        <aside class="card" style="padding:0; overflow:hidden">
+          <img alt="Équipe du Bistrouille" loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1556740749-887f6717d7e4?auto=format&fit=crop&w=1200&q=80" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1200&q=80'"/>
+        </aside>
+      </div>
+    </section>
+
+    <section id="menu" aria-labelledby="menu-title">
+      <div class="container">
+        <div class="card">
+          <div class="promo" role="note" aria-label="Mise en avant formule">
+            <div class="promo__thumb"><img loading="lazy" decoding="async" alt="Visuel formule" src="https://images.unsplash.com/photo-1544025164-8d1b1c2a7f2e?auto=format&fit=crop&w=600&q=80"/></div>
+            <p style="margin:0"><strong>Formule bistrouille</strong> — Choisissez <em>Entrée + Plat</em> ou <em>Plat + Dessert</em> parmi les plats identifiés d’un <strong>*</strong> ci‑dessous.</p>
+            <div class="promo__badge" aria-label="Prix formule">24&nbsp;€</div>
+          </div>
+
+          <h2 id="menu-title" class="section-title" style="margin-top:18px">La carte</h2>
+          <div class="grid grid--3">
+            <div class="menu__col">
+              <h3>Entrées</h3>
+              <article class="menu-item"><div class="menu-item__thumb"><img loading="lazy" decoding="async" alt="Œufs mayo" src="https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=600&q=80"></div><div><div class="menu-item__name">Œufs mayo *</div><p class="menu-item__desc">Mayo maison, ciboulette, fleur de sel.</p></div><div class="menu-item__price">6€</div></article>
+              <article class="menu-item"><div class="menu-item__thumb"><img loading="lazy" decoding="async" alt="Poireaux vinaigrette" src="https://images.unsplash.com/photo-1526312426976-593c2b999512?auto=format&fit=crop&w=600&q=80"></div><div><div class="menu-item__name">Poireaux vinaigrette *</div><p class="menu-item__desc">Vinaigrette moutardée, herbes fraîches, noisettes.</p></div><div class="menu-item__price">8€</div></article>
+              <article class="menu-item"><div class="menu-item__thumb"><img loading="lazy" decoding="async" alt="Terrine du chef" src="https://images.unsplash.com/photo-1544025163-5fd6a5d7d8bf?auto=format&fit=crop&w=600&q=80"></div><div><div class="menu-item__name">Terrine du chef</div><p class="menu-item__desc">Pickles maison, pain de campagne tiède.</p></div><div class="menu-item__price">9€</div></article>
+            </div>
+            <div class="menu__col">
+              <h3>Plats</h3>
+              <article class="menu-item"><div class="menu-item__thumb"><img loading="lazy" decoding="async" alt="Bavette, jus corsé" src="https://images.unsplash.com/photo-1544025164-8d1b1c2a7f2e?auto=format&fit=crop&w=600&q=80"></div><div><div class="menu-item__name">Bavette, jus corsé *</div><p class="menu-item__desc">Échalotes confites, frites maison dorées, jus réduit.</p></div><div class="menu-item__price">18€</div></article>
+              <article class="menu-item"><div class="menu-item__thumb"><img loading="lazy" decoding="async" alt="Poisson du marché" src="https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?auto=format&fit=crop&w=600&q=80"></div><div><div class="menu-item__name">Poisson du marché *</div><p class="menu-item__desc">Beurre citronné, légumes de saison rôtis.</p></div><div class="menu-item__price">21€</div></article>
+              <article class="menu-item"><div class="menu-item__thumb"><img loading="lazy" decoding="async" alt="Risotto crémeux" src="https://images.unsplash.com/photo-1467003909585-2f8a72700288?auto=format&fit=crop&w=600&q=80"></div><div><div class="menu-item__name">Risotto crémeux</div><p class="menu-item__desc">Parmesan affiné, huile de truffe, champignons.</p></div><div class="menu-item__price">17€</div></article>
+            </div>
+            <div class="menu__col">
+              <h3>Desserts</h3>
+              <article class="menu-item"><div class="menu-item__thumb"><img loading="lazy" decoding="async" alt="Mousse au chocolat" src="https://images.unsplash.com/photo-1551024709-8f23befc6cf7?auto=format&fit=crop&w=600&q=80"></div><div><div class="menu-item__name">Mousse au chocolat *</div><p class="menu-item__desc">70% cacao, chantilly à la vanille.</p></div><div class="menu-item__price">7€</div></article>
+              <article class="menu-item"><div class="menu-item__thumb"><img loading="lazy" decoding="async" alt="Tarte du moment" src="https://images.unsplash.com/photo-1541782814456-3974c54c1ab1?auto=format&fit=crop&w=600&q=80"></div><div><div class="menu-item__name">Tarte du moment *</div><p class="menu-item__desc">Selon saison, pâte sablée maison.</p></div><div class="menu-item__price">7€</div></article>
+              <article class="menu-item"><div class="menu-item__thumb"><img loading="lazy" decoding="async" alt="Crème brûlée" src="https://images.unsplash.com/photo-1488477181946-6428a0291777?auto=format&fit=crop&w=600&q=80"></div><div><div class="menu-item__name">Crème brûlée</div><p class="menu-item__desc">Vanille bourbon, cassonade caramélisée.</p></div><div class="menu-item__price">7€</div></article>
+            </div>
+          </div>
+          <div style="margin-top:14px"><a class="btn btn--ghost" href="#" id="menu-pdf">Visualiser la carte (PDF)</a></div>
+
+          <!-- Vins -->
+          <div class="grid grid--2 wines__row" style="margin-top:18px">
+            <div class="card">
+              <span class="tag">Sélection de 3 vins</span>
+              <h3 style="margin:8px 0 0">Notre cave (accords mets & vins)</h3>
+              <article class="wine"><div class="wine__thumb"><img loading="lazy" decoding="async" alt="Chenin Montlouis" src="https://images.unsplash.com/photo-1542238060-5c6c2b1b3c02?auto=format&fit=crop&w=600&q=80"></div><div><strong>Chenin — Montlouis‑sur‑Loire</strong><br><small>Fruits blancs, tension, parfait sur le poisson du marché.</small></div><div class="wine__prices"><span class="menu-item__price">6€ verre</span></div><div class="wine__prices"><span class="menu-item__price">28€ bt</span></div></article>
+              <article class="wine"><div class="wine__thumb"><img loading="lazy" decoding="async" alt="Pinot noir Bourgogne" src="https://images.unsplash.com/photo-1527169402691-feff5539e52c?auto=format&fit=crop&w=600&q=80"></div><div><strong>Pinot noir — Bourgogne</strong><br><small>Finesse, fruits rouges, idéal avec la bavette.</small></div><div class="wine__prices"><span class="menu-item__price">7€ verre</span></div><div class="wine__prices"><span class="menu-item__price">34€ bt</span></div></article>
+              <article class="wine"><div class="wine__thumb"><img loading="lazy" decoding="async" alt="Extra‑brut" src="https://images.unsplash.com/photo-1534158914592-062992fbe900?auto=format&fit=crop&w=600&q=80"></div><div><strong>Extra‑brut — Sélection</strong><br><small>Bulles fines, apéritif & dessert.</small></div><div class="wine__prices"><span class="menu-item__price">8€ verre</span></div><div class="wine__prices"><span class="menu-item__price">39€ bt</span></div></article>
+              <div style="margin-top:14px"><a class="btn btn--ghost" href="#" id="wine-pdf">Découvrir la cave (PDF)</a></div>
+            </div>
+            <aside class="card" style="padding:0; overflow:hidden"><img alt="Notre cave" loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1516156000620-8e552e6f54d1?auto=format&fit=crop&w=1200&q=80"></aside>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Social Wall à la El Catrin -->
+    <section id="social" aria-labelledby="social-title">
+      <div class="container">
+        <span class="tag">Ça se passe sur les réseaux — et au Bistrouille</span>
+        <h2 id="social-title" class="section-title">Sur Instagram & Facebook</h2>
+        <div class="social">
+          <article class="post"><img class="post__img" alt="Post 1" src="https://images.unsplash.com/photo-1526312426976-593c2b999512?auto=format&fit=crop&w=900&q=80"><div class="post__meta"><span class="post__tag">@bistrouille</span><a class="btn btn--ghost" href="#">Voir</a></div></article>
+          <article class="post"><img class="post__img" alt="Post 2" src="https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?auto=format&fit=crop&w=900&q=80"><div class="post__meta"><span class="post__tag">#bistrot</span><a class="btn btn--ghost" href="#">Voir</a></div></article>
+          <article class="post"><img class="post__img" alt="Post 3" src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=900&q=80"><div class="post__meta"><span class="post__tag">#convivialité</span><a class="btn btn--ghost" href="#">Voir</a></div></article>
+          <article class="post"><img class="post__img" alt="Post 4" src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=900&q=80"><div class="post__meta"><span class="post__tag">@bistrouille</span><a class="btn btn--ghost" href="#">Voir</a></div></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="galerie" aria-labelledby="galerie-title">
+      <div class="container">
+        <h2 id="galerie-title" class="section-title">Galerie</h2>
+        <div class="gallery">
+          <div class="gallery__controls"><button class="gbtn" id="gprev" aria-label="Précédent">‹</button><button class="gbtn" id="gnext" aria-label="Suivant">›</button></div>
+          <div class="gallery__row" id="galrow">
+            <div class="thumb" data-idx="1"><img alt="Plat 1" src="https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?auto=format&fit=crop&w=600&q=80"></div>
+            <div class="thumb" data-idx="2"><img alt="Dessert" src="https://images.unsplash.com/photo-1551024709-8f23befc6cf7?auto=format&fit=crop&w=600&q=80"></div>
+            <div class="thumb" data-idx="3"><img alt="Viande" src="https://images.unsplash.com/photo-1544025164-8d1b1c2a7f2e?auto=format&fit=crop&w=600&q=80"></div>
+            <div class="thumb" data-idx="4"><img alt="Entrée" src="https://images.unsplash.com/photo-1526312426976-593c2b999512?auto=format&fit=crop&w=600&q=80"></div>
+            <div class="thumb" data-idx="5"><img alt="Risotto" src="https://images.unsplash.com/photo-1467003909585-2f8a72700288?auto=format&fit=crop&w=600&q=80"></div>
+            <div class="thumb" data-idx="6"><img alt="Ambiance" src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=600&q=80"></div>
+            <div class="thumb" data-idx="7"><img alt="Table dressée" src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=600&q=80"></div>
+            <div class="thumb" data-idx="8"><img alt="Planche charcuterie" src="https://images.unsplash.com/photo-1544025163-5fd6a5d7d8bf?auto=format&fit=crop&w=600&q=80"></div>
+            <div class="thumb" data-idx="9"><img alt="Salle" src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=600&q=80"></div>
+            <div class="thumb" data-idx="10"><img alt="Vin rouge" src="https://images.unsplash.com/photo-1514361892635-6b07e31e75bc?auto=format&fit=crop&w=600&q=80"></div>
+            <div class="thumb" data-idx="11"><img alt="Dessert fruits" src="https://images.unsplash.com/photo-1541782814456-3974c54c1ab1?auto=format&fit=crop&w=600&q=80"></div>
+            <div class="thumb" data-idx="12"><img alt="Cuisine" src="https://images.unsplash.com/photo-1556740749-887f6717d7e4?auto=format&fit=crop&w=600&q=80"></div>
+          </div>
+          <div class="featured" id="featured" aria-live="polite"><img id="featured-img" alt="Visuel sélectionné" src=""/></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="evenements" aria-labelledby="events-title">
+      <div class="container">
+        <div class="card"><span class="tag">Vie du bistrot</span><h2 id="events-title" class="section-title">Événements à venir</h2>
+          <div class="grid">
+            <article class="event" style="display:flex; align-items:center; gap:18px"><img alt="Soirée Beaujolais" loading="lazy" decoding="async" style="width:120px;height:80px;object-fit:cover;border-radius:10px" src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=600&q=80"><div style="flex:1"><strong>Soirée Beaujolais</strong><br><span class="muted">21 novembre – 19h30</span><p class="muted" style="margin:6px 0 0">Découvrez le Beaujolais nouveau autour d’une planche bistronomique et d’une ambiance live.</p></div><a class="btn btn--ghost" href="#reservation">Réserver</a></article>
+            <article class="event" style="display:flex; align-items:center; gap:18px"><img alt="Concert jazz" loading="lazy" decoding="async" style="width:120px;height:80px;object-fit:cover;border-radius:10px" src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=600&q=80"><div style="flex:1"><strong>Concert jazz</strong><br><span class="muted">15 décembre – 20h30</span><p class="muted" style="margin:6px 0 0">Un trio jazz pour une soirée cosy : carte courte, vins au verre, places limitées.</p></div><a class="btn btn--ghost" href="#reservation">Réserver</a></article>
+          </div>
+          <div style="margin-top:14px; display:flex; gap:12px; flex-wrap:wrap">
+            <a href="#" class="btn btn--ghost">Voir sur Facebook</a>
+          </div>
+          <div style="margin-top:14px" class="card">
+            <p><strong>Sinon, le mieux, c’est qu’on se tienne au courant !</strong></p>
+            <form id="events-sub">
+              <div class="row">
+                <label>Votre email<input type="email" name="email" placeholder="vous@exemple.com" required></label>
+                <label class="consent"><input type="checkbox" required style="margin-top:3px"> <span>J’accepte de recevoir des nouvelles régulières du Bistrouille.</span></label>
+              </div>
+              <button class="btn btn--primary" type="submit">M’abonner</button>
+              <p id="events-feedback" class="muted" aria-live="polite"></p>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="reservation" aria-labelledby="resa-title">
+      <div class="container grid grid--2">
+        <div class="card"><span class="tag">Réserver</span><h2 id="resa-title" class="section-title">Réservation en ligne</h2>
+          <form id="resa-form" novalidate>
+            <label>Nom et prénom<input type="text" name="name" required placeholder="Nom et prénom"></label>
+            <div class="row"><label>Téléphone<input type="tel" name="tel" required placeholder="01 23 45 67 89" inputmode="tel" pattern="^[0-9+ ()-]{6,}$"></label><label>Email<input type="email" name="email" required placeholder="vous@exemple.com"></label></div>
+            <div class="row"><label>Date<input type="date" name="date" required></label><label>Heure<input type="time" name="time" required></label></div>
+            <label>Nombre de personnes<select name="people" required><option value="" disabled selected>—</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7+</option></select></label>
+            <label>Message<textarea rows="3" name="msg" placeholder="Allergies, préférences… (optionnel)"></textarea></label>
+            <label class="consent"><input type="checkbox" name="optin" style="margin-top:3px"> <span>J’en profite pour m’abonner à la newsletter du Bistrouille, pour être certain d’avoir faim régulièrement.</span></label>
+            <button class="btn btn--primary" type="submit">Confirmer ma réservation</button>
+            <p id="resa-feedback" class="muted" aria-live="polite"></p>
+          </form>
+        </div>
+        <address class="card" id="contact" style="font-style:normal"><span class="tag">Contact & Accès</span><h2 class="section-title">Nous trouver</h2>
+          <p><strong>Adresse</strong><br>Rue Gabriel Péri, 78800 Houilles</p>
+          <p><strong>Horaires</strong><br><strong>Mardi → Samedi</strong>, de <strong>8h à 22h</strong></p>
+          <p><strong>Téléphone</strong><br><a href="tel:+33123456789">01 23 45 67 89</a></p>
+          <p><strong>Venir</strong><br>RER A — <em>Houilles–Carrières‑sur‑Seine</em> · Parkings publics à proximité</p>
+          <iframe title="Carte — rue Gabriel Péri, Houilles" style="width:100%;height:220px;border:0;border-radius:14px" src="https://www.openstreetmap.org/export/embed.html?bbox=2.177%2C48.917%2C2.201%2C48.928&layer=mapnik&marker=48.922%2C2.189"></iframe>
+          <small class="muted"><a href="https://www.openstreetmap.org/?mlat=48.922&mlon=2.189#map=16/48.922/2.189" target="_blank" rel="noopener">Ouvrir sur OpenStreetMap</a></small>
+        </address>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer" role="contentinfo">
+    <div class="container footer__cols">
+      <div>
+        <strong>bistrouille</strong>
+        <p class="muted">Restaurant & bistrot à Houilles — cuisine maison, produits de saison et belle carte des vins. Ouvert du mardi au samedi, 8h–22h.</p>
+        <p class="footer-links"><a href="#menu">La carte</a> · <a href="#galerie">Galerie</a> · <a href="#evenements">Événements</a> · <a href="#contact">Contact</a> · <a href="#reservation">Réserver</a></p>
+        <p class="phone"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" xmlns="http://www.w3.org/2000/svg" style="width:18px;height:18px"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.9.3 1.77.56 2.61a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.47-1.11a2 2 0 0 1 2.11-.45c.84.26 1.71.44 2.61.56A2 2 0 0 1 22 16.92z"/></svg><a href="tel:+33123456789" style="margin-left:8px"><strong>01 23 45 67 89</strong></a></p>
+      </div>
+      <div><p class="muted">© bistrouille — Mentions légales</p></div>
+      <div style="display:flex; gap:12px; justify-content:flex-end; align-items:center">
+        <a class="iconbtn" href="#" aria-label="Instagram" title="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" xmlns="http://www.w3.org/2000/svg"><rect x="3" y="3" width="18" height="18" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+        <a class="iconbtn" href="#" aria-label="Facebook" title="Facebook"><svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M22 12.06C22 6.503 17.523 2 12 2S2 6.503 2 12.06C2 17.08 5.657 21.245 10.438 22v-7.01H7.898v-2.93h2.54V9.845c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.196 2.238.196v2.47h-1.26c-1.243 0-1.63.774-1.63 1.568v1.878h2.773l-.443 2.93h-2.33V22C18.343 21.245 22 17.08 22 12.06Z"/></svg></a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Burger / Drawer
+    const burger = document.querySelector('.burger');
+    const drawer = document.getElementById('drawer');
+    if(burger){burger.addEventListener('click',()=>{const open = drawer.classList.toggle('drawer--open');burger.setAttribute('aria-expanded', open ? 'true' : 'false');drawer.setAttribute('aria-hidden', open ? 'false' : 'true');});}
+    // Smooth scroll
+    document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener('click', e=>{const id = a.getAttribute('href');if(id.length>1){e.preventDefault();document.querySelector(id)?.scrollIntoView({behavior:'smooth', block:'start'});}});});
+    // Galerie
+    const mapIdxToUrl={1:'https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?auto=format&fit=crop&w=1600&q=80',2:'https://images.unsplash.com/photo-1551024709-8f23befc6cf7?auto=format&fit=crop&w=1600&q=80',3:'https://images.unsplash.com/photo-1544025164-8d1b1c2a7f2e?auto=format&fit=crop&w=1600&q=80',4:'https://images.unsplash.com/photo-1526312426976-593c2b999512?auto=format&fit=crop&w=1600&q=80',5:'https://images.unsplash.com/photo-1467003909585-2f8a72700288?auto=format&fit=crop&w=1600&q=80',6:'https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=1600&q=80',7:'https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=1600&q=80',8:'https://images.unsplash.com/photo-1544025163-5fd6a5d7d8bf?auto=format&fit=crop&w=1600&q=80',9:'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1600&q=80',10:'https://images.unsplash.com/photo-1514361892635-6b07e31e75bc?auto=format&fit=crop&w=1600&q=80',11:'https://images.unsplash.com/photo-1541782814456-3974c54c1ab1?auto=format&fit=crop&w=1600&q=80',12:'https://images.unsplash.com/photo-1556740749-887f6717d7e4?auto=format&fit=crop&w=1600&q=80'};
+    const row=document.getElementById('galrow');const featured=document.getElementById('featured');const fimg=document.getElementById('featured-img');const prev=document.getElementById('gprev');const next=document.getElementById('gnext');
+    function scrollGallery(dir){row.scrollBy({left: dir*300, behavior:'smooth'});} prev?.addEventListener('click', ()=>scrollGallery(-1)); next?.addEventListener('click', ()=>scrollGallery(1));
+    row?.addEventListener('click',(e)=>{const t=e.target.closest('.thumb');if(!t) return; const idx=t.dataset.idx; if(featured.dataset.open===String(idx)){featured.style.display='none'; fimg.src=''; featured.dataset.open=''; return;} fimg.src=mapIdxToUrl[idx]; featured.style.display='block'; featured.dataset.open=String(idx);});
+    // Réservation : validation front simple
+    const resa=document.getElementById('resa-form'); const rfb=document.getElementById('resa-feedback');
+    resa?.addEventListener('submit',(e)=>{e.preventDefault(); let ok=true; rfb.textContent=''; resa.querySelectorAll('input[required], select[required]').forEach(el=>{el.classList.remove('error'); if(!el.value){ok=false; el.classList.add('error');}}); if(!ok){rfb.textContent='Merci de compléter les champs obligatoires.';return;} rfb.textContent='Merci ! Votre demande a bien été envoyée. Nous vous recontactons pour confirmer.'; resa.reset();});
+    // Events opt-in
+    const es=document.getElementById('events-sub'); const efb=document.getElementById('events-feedback');
+    es?.addEventListener('submit',(e)=>{e.preventDefault(); const email=es.querySelector('input[type=email]'); const ok=es.querySelector('input[type=checkbox]').checked && email.value; if(!ok){efb.textContent='Merci d’indiquer votre email et de cocher la case.'; return;} efb.textContent='Merci ! Vous êtes sur la liste.'; es.reset();});
+  </script>
+</body>
+</html>
