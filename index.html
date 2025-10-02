@@ -7,102 +7,16 @@
   <meta name="description" content="Bistrouille, restaurant & bistrot à Houilles. Cuisine maison, produits de saison, belle carte des vins. Ouvert du mardi au samedi, 8h–22h. Réservation en ligne.">
   <link rel="canonical" href="https://exemple.com/"/>
   <link rel="preconnect" href="https://images.unsplash.com" crossorigin>
-  <style>
-    :root{--brown:#6b4b3e;--brown-700:#5a3f34;--cream:#f6f1ea;--wine:#7b1e2b;--ink:#1c1b1a;--muted:#7a7672;--card:#fff;--radius:18px;--shadow:0 10px 25px rgba(0,0,0,.08);--container:1100px}
-    *,*::before,*::after{box-sizing:border-box}
-    html,body{margin:0;padding:0}
-    body{font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji"; color:var(--ink); background:var(--cream)}
-    img{max-width:100%; display:block}
-    a{color:var(--wine); text-decoration:none}
-    :focus-visible{outline:2px solid var(--wine); outline-offset:2px}
-    .container{width:min(var(--container),92vw); margin-inline:auto}
-    .grid{display:grid; gap:18px}
-    .grid--2{grid-template-columns:1fr 1fr}
-    .grid--3{grid-template-columns:repeat(3,1fr)}
-    @media(max-width:900px){.grid--2,.grid--3{grid-template-columns:1fr}}
-    .card{background:var(--card); border-radius:var(--radius); box-shadow:var(--shadow); padding:22px}
-    .btn{display:inline-flex; align-items:center; gap:10px; padding:12px 16px; border-radius:14px; font-weight:700; border:2px solid transparent; cursor:pointer}
-    .btn--primary{background:var(--wine); color:#fff}
-    .btn--ghost{background:#fff; color:var(--ink); border-color:rgba(0,0,0,.08)}
-    .tag{display:inline-block; background:rgba(123,30,43,.09); color:var(--wine); padding:6px 10px; border-radius:999px; font-size:12px; font-weight:700}
-    .section-title{font-size:26px; margin:0 0 18px; color:var(--brown)}
-    /* Header */
-    .header{position:sticky; top:0; z-index:50; background:rgba(246,241,234,.85); backdrop-filter:blur(8px); border-bottom:1px solid rgba(0,0,0,.06)}
-    .header__inner{display:flex; align-items:center; justify-content:space-between; padding:14px 0}
-    .brand{display:flex; gap:12px; align-items:center}
-    .brand__logo{width:40px; height:40px; border-radius:12px; background:linear-gradient(135deg,var(--brown),var(--brown-700)); box-shadow:var(--shadow)}
-    .brand__title{font-size:18px; letter-spacing:.4px; margin:0; color:var(--brown)}
-    .nav{display:flex; gap:22px}
-    .nav__list{display:flex; gap:22px; list-style:none; margin:0; padding:0}
-    .nav__link{font-weight:600; color:var(--ink)}
-    .toolbar{display:flex; gap:12px; align-items:center}
-    .phone{display:inline-flex; align-items:center; gap:8px; font-weight:800; color:var(--ink)}
-    .phone svg{width:18px;height:18px}
-    .iconbtn{display:inline-flex; align-items:center; justify-content:center; width:38px; height:38px; border-radius:12px; background:#fff; border:1px solid rgba(0,0,0,.08); box-shadow:var(--shadow)}
-    .iconbtn svg{width:18px;height:18px}
-    .burger{display:none; flex-direction:column; gap:4px; background:none; border:0}
-    .burger span{width:24px; height:2px; background:var(--ink)}
-    @media(max-width:900px){.nav{display:none}.burger{display:flex}}
-    .drawer{position:fixed; top:60px; right:4vw; width:min(520px,92vw); background:var(--card); border-radius:16px; box-shadow:var(--shadow); display:none}
-    .drawer--open{display:block}
-    .drawer ul{list-style:none; margin:0; padding:16px}
-    .drawer li{border-bottom:1px solid rgba(0,0,0,.06)}
-    .drawer a{display:block; padding:14px 4px; color:var(--ink); font-weight:600}
-    /* Hero */
-    .hero{position:relative; margin-top:8px}
-    .hero__wrap{position:relative; overflow:hidden; border-radius:24px; box-shadow:var(--shadow)}
-    .hero__media{min-height:70vh; background-size:cover; background-position:center; background-image:linear-gradient(180deg, rgba(107,75,62,.12), rgba(0,0,0,.55)), url('https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=1600&q=80')}
-    .hero__content{position:absolute; inset:auto 0 0 0; padding:28px; display:grid; gap:12px; color:#fff; text-shadow:0 2px 12px rgba(0,0,0,.28)}
-    .hero__title{margin:0; font-size:clamp(26px,4vw,44px); line-height:1.1}
-    .hero__subtitle{margin:0; font-size:clamp(14px,2vw,18px)}
-    .hero__ctas{display:flex; gap:12px; flex-wrap:wrap; margin-top:8px}
-    .downwrap{display:flex; justify-content:center; margin-top:8px}
-    .down{background:#fff; border:2px solid var(--wine); color:var(--wine); border-radius:999px; padding:10px 14px; display:inline-flex; align-items:center; gap:10px; font-weight:800; box-shadow:var(--shadow)}
-    .down svg{width:18px;height:18px}
-    /* Présentation */
-    section{padding:48px 0}
-    .chip{display:inline-flex; align-items:center; gap:10px; padding:8px 12px; border:1px dashed rgba(0,0,0,.12); border-radius:999px; background:#fff}
-    /* Menu */
-    .promo{display:grid; grid-template-columns:140px 1fr auto; align-items:center; gap:16px; padding:18px; border:2px dashed var(--wine); border-radius:16px; background:linear-gradient(90deg, rgba(123,30,43,.08), rgba(123,30,43,.02))}
-    .promo__thumb{width:140px; height:100px; border-radius:10px; overflow:hidden}
-    .promo__badge{background:var(--wine); color:#fff; padding:10px 14px; border-radius:12px; font-weight:900}
-    .menu-item{display:grid; grid-template-columns:120px 1fr auto; gap:14px; align-items:center; padding:12px 0; border-bottom:1px dashed rgba(0,0,0,.08)}
-    .menu-item__thumb{width:120px; height:96px; border-radius:12px; overflow:hidden; background:#ddd}
-    .menu-item__name{font-weight:800}
-    .menu-item__desc{color:var(--muted); font-size:14px; margin-top:4px}
-    .menu-item__price{font-weight:800; color:var(--wine)}
-    /* Vins */
-    .wines__row{align-items:stretch}
-    .wine{display:grid; grid-template-columns:90px 1fr auto auto; gap:12px; align-items:center; padding:10px 0; border-bottom:1px dashed rgba(0,0,0,.08)}
-    .wine__thumb{width:90px; height:90px; border-radius:10px; overflow:hidden; background:#ddd}
-    .wine__prices{display:flex; gap:12px; white-space:nowrap}
-    /* Social wall */
-    .social{display:grid; grid-template-columns:1fr 1fr; gap:18px}
-    .post{background:#fff; border-radius:16px; box-shadow:var(--shadow); overflow:hidden}
-    .post__img{aspect-ratio:1/1; object-fit:cover}
-    .post__meta{display:flex; align-items:center; justify-content:space-between; padding:10px 12px}
-    .post__tag{font-weight:700; font-size:12px; color:var(--wine)}
-    /* Galerie */
-    .gallery__controls{display:flex; justify-content:space-between; margin-bottom:8px}
-    .gbtn{border:1px solid rgba(0,0,0,.12); background:#fff; border-radius:10px; padding:8px 10px}
-    .gallery__row{overflow-x:auto; display:grid; grid-auto-flow:column; grid-auto-columns:160px; gap:8px}
-    .thumb{aspect-ratio:1/1; border-radius:12px; background:#ddd; cursor:pointer; overflow:hidden}
-    .featured{margin-top:12px; aspect-ratio:16/9; border-radius:14px; overflow:hidden; background:#000; display:none}
-    /* Form */
-    form{display:grid; gap:12px}
-    label{display:grid; gap:6px; font-weight:600}
-    input,select,textarea{padding:12px 14px; border:1px solid rgba(0,0,0,.14); border-radius:12px; background:#fff; font:inherit}
-    .row{display:grid; grid-template-columns:1fr 1fr; gap:12px}
-    .consent{display:flex; align-items:flex-start; gap:10px; font-size:14px}
-    .error{border-color:#c0392b}
-    .help{font-size:12px; color:#c0392b}
-    /* Footer */
-    .footer{padding:36px 0; border-top:1px solid rgba(0,0,0,.08)}
-    .footer__cols{display:grid; grid-template-columns:2fr 1fr 1fr; gap:18px}
-    @media(max-width:900px){.footer__cols{grid-template-columns:1fr}}
-    .muted{color:var(--muted); font-size:14px}
-    .footer-links a{margin-right:12px}
-  </style>
+  <!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;600;700;900&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600&display=swap" rel="stylesheet">
+
+<!-- Thème externe -->
+<link rel="stylesheet" href="bistrouille.theme.css">
+
+<!-- Interactions -->
+<script src="bistrouille.theme.js" defer></script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"Restaurant","name":"Bistrouille","address":{"@type":"PostalAddress","streetAddress":"Rue Gabriel Péri","addressLocality":"Houilles","postalCode":"78800","addressCountry":"FR"},"telephone":"+33123456789","servesCuisine":"Française","openingHours":"Tu-Sa 08:00-22:00","sameAs":["https://instagram.com/","https://facebook.com/"]}</script>
 </head>
 <body>
