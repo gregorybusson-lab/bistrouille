@@ -5,9 +5,9 @@
 
   // Header state + hero parallax
   const header = $('.header');
+  const hero = $('.hero__media');
   function onScroll(){
     if(window.scrollY > 40){ header?.classList.add('scrolled'); } else { header?.classList.remove('scrolled'); }
-    const hero = $('#heroMedia');
     if(hero){
       const y = window.scrollY * -0.08;
       hero.style.backgroundPosition = `center ${y}px`;
@@ -64,13 +64,17 @@
   nextBtn?.addEventListener('click', ()=>scrollGallery(1));
   row?.addEventListener('click', (e)=>{
     const t = e.target.closest('.thumb');
-    if(!t) return;
+    if(!t || !featured || !fimg) return;
     const idx = t.dataset.idx;
     if(featured.dataset.open === String(idx)){
-      featured.classList.remove('is-open'); fimg.src=''; featured.dataset.open=''; return;
+      featured.classList.remove('is-open');
+      fimg.src='';
+      featured.dataset.open='';
+      return;
     }
     fimg.src = mapIdxToUrl[idx];
-    featured.classList.add('is-open'); featured.dataset.open = String(idx);
+    featured.classList.add('is-open');
+    featured.dataset.open = String(idx);
   });
 
   // Formulaires
@@ -92,7 +96,10 @@
     e.preventDefault();
     const email = es.querySelector('input[type=email]');
     const consent = es.querySelector('input[type=checkbox]');
-    if(!email.value || !consent.checked){ efb.textContent = 'Merci d’indiquer votre email et de cocher la case.'; return; }
+    if(!email?.value || !consent?.checked){
+      efb.textContent = 'Merci d’indiquer votre email et de cocher la case.';
+      return;
+    }
     efb.textContent = 'Merci ! Vous êtes sur la liste.';
     es.reset();
   });
