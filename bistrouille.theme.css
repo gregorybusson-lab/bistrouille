@@ -170,3 +170,93 @@ input:focus,select:focus,textarea:focus{border-color:var(--wine);box-shadow:0 0 
 html, body { overflow-x: hidden; }
 .header, .hero, section, .footer, .container { max-width: 100vw; }
 .down { font-size: 15px; padding: 10px 14px; }
+
+/* =========================================================
+   Bistrouille — Design Upgrade v1 (styles additionnels)
+   (garde tout ton CSS existant ; on étend/raffine uniquement)
+   ========================================================= */
+
+/* 1) Header scrolled : compacité + relief léger */
+.header.scrolled {
+  background: rgba(246,241,234,.95);
+  border-bottom-color: rgba(0,0,0,.08);
+  box-shadow: 0 10px 30px rgba(0,0,0,.10);
+}
+.header.scrolled .header__inner { padding: 10px 0; }
+
+/* 2) Hero : vignettage doux + overlay dégradé un peu plus “gastro” */
+.hero__wrap { position: relative; isolation:isolate; }
+.hero__wrap::after {
+  content:""; position:absolute; inset:0; pointer-events:none;
+  background:
+    radial-gradient(120% 80% at 50% 0%, rgba(0,0,0,.20) 0%, rgba(0,0,0,0) 60%),
+    linear-gradient(180deg, rgba(27,14,16,0) 30%, rgba(27,14,16,.45) 92%);
+  mix-blend-mode: multiply;
+  z-index:0;
+}
+.hero__content { position:absolute; z-index:1; }
+
+/* 3) Boutons : “press” & outline focus + légère translation au clic */
+.btn { transform: translateY(0); }
+.btn:active { transform: translateY(1px); }
+.btn:focus-visible { box-shadow: 0 0 0 4px rgba(123,30,43,.18); }
+
+/* 4) Cartes : ombre rehaussée au hover */
+.card { transition: box-shadow .25s ease, transform .25s ease; }
+.card:hover { box-shadow: 0 18px 40px rgba(0,0,0,.12); }
+
+/* 5) Séparateurs doux entre sections (subtile ligne crème foncée) */
+section + section { position:relative; }
+section + section::before {
+  content:""; position:absolute; top:0; left:50%; transform:translateX(-50%);
+  width:min(1100px,92vw); height:1px; background:linear-gradient(90deg, transparent, rgba(0,0,0,.08), transparent);
+}
+
+/* 6) Icônes réseaux dans .iconbtn (Instagram / Facebook) */
+.iconbtn[aria-label="Instagram"],
+.iconbtn[title="Instagram"] {
+  -webkit-mask: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" fill="%23000" viewBox="0 0 24 24"><path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3H7zm5 3a6 6 0 1 1 0 12 6 6 0 0 1 0-12zm0 2.2A3.8 3.8 0 1 0 12 17.8 3.8 3.8 0 0 0 12 9.2zm5.3-2.1a1.2 1.2 0 1 1 0 2.4 1.2 1.2 0 0 1 0-2.4z"/></svg>') center/62% no-repeat;
+          mask: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" fill="%23000" viewBox="0 0 24 24"><path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3H7zm5 3a6 6 0 1 1 0 12 6 6 0 0 1 0-12zm0 2.2A3.8 3.8 0 1 0 12 17.8 3.8 3.8 0 0 0 12 9.2zm5.3-2.1a1.2 1.2 0 1 1 0 2.4 1.2 1.2 0 0 1 0-2.4z"/></svg>') center/62% no-repeat;
+  background: var(--wine);
+}
+.iconbtn[aria-label="Facebook"],
+.iconbtn[title="Facebook"] {
+  -webkit-mask: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" fill="%23000" viewBox="0 0 24 24"><path d="M13.5 22v-8h2.7l.4-3H13.5V9.1c0-.9.3-1.5 1.7-1.5H16.7V5.1c-.3 0-1.3-.1-2.4-.1-2.3 0-3.8 1.3-3.8 3.9V11H8v3h2.5v8h3z"/></svg>') center/56% no-repeat;
+          mask: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" fill="%23000" viewBox="0 0 24 24"><path d="M13.5 22v-8h2.7l.4-3H13.5V9.1c0-.9.3-1.5 1.7-1.5H16.7V5.1c-.3 0-1.3-.1-2.4-.1-2.3 0-3.8 1.3-3.8 3.9V11H8v3h2.5v8h3z"/></svg>') center/56% no-repeat;
+  background: var(--wine);
+}
+
+/* 7) Menu : petits bullets décoratifs + alignement prix */
+.menu__col h3 { position:relative; padding-left:14px; }
+.menu__col h3::before {
+  content:""; position:absolute; left:0; top:.55em;
+  width:6px; height:6px; border-radius:50%;
+  background: var(--wine);
+}
+.menu-item__price { font-variation-settings: "wght" 900; letter-spacing:.2px; }
+
+/* 8) Cave : “piste” verticale et séparateurs subtils */
+.wines__row .card { position:relative; }
+.wines__row .card::before {
+  content:""; position:absolute; left:22px; top:22px; bottom:22px; width:2px;
+  background: linear-gradient(180deg, rgba(123,30,43,.18), rgba(123,30,43,0));
+  border-radius:2px;
+}
+.wine { position:relative; padding-left:10px; }
+.wine + .wine { border-top: 1px dashed rgba(0,0,0,.06); }
+
+/* 9) Galerie : ombre douce sur l’image mise en avant */
+.featured.is-open { box-shadow: 0 18px 40px rgba(0,0,0,.18); }
+
+/* 10) Footer : petites icônes bordeaux au hover */
+.footer .iconbtn { background:#fff; border-color: rgba(0,0,0,.08); }
+.footer .iconbtn:hover { background:#fff; transform: translateY(-1px); }
+
+/* 11) Mobile polish (affinages supplémentaires) */
+@media (max-width: 768px) {
+  .header__inner { padding: 10px 0; }
+  .brand__logo { width:36px; height:36px; border-radius:11px; }
+  .brand__title { font-size: 18px; max-width: 50vw; }
+  .down { border-width: 2px; }
+  .post__img { aspect-ratio: 4/3; }
+}
