@@ -5,15 +5,16 @@
 
   /* Header scrolled + parallaxe hero (fluide) */
   const header = $('.header');
-  const hero = $('#heroMedia');
+  const hero = $('.hero__media');
+  const PARALLAX_RATIO = -0.12;
   let ticking = false;
   function onScroll(){
     if(!ticking){
       window.requestAnimationFrame(()=>{
         if(header) header.classList.toggle('scrolled', window.scrollY>40);
         if(hero){
-          // Parallaxe léger, sans layout thrash
-          const y = window.scrollY * -0.06;
+          // Parallaxe plus perceptible, sans layout thrash
+          const y = window.scrollY * PARALLAX_RATIO;
           hero.style.backgroundPosition = `center ${y}px`;
         }
         ticking = false;
@@ -89,3 +90,4 @@
     efb.textContent = 'Merci ! Vous êtes sur la liste.'; es.reset();
   });
 })();
+
