@@ -48,7 +48,8 @@ h1,h2,h3,h4,.brand__title{font-family:'Playfair Display',Georgia,serif}
 .tag{display:inline-block;padding:6px 10px;border-radius:999px;background:rgba(122,15,31,.08);color:var(--brand);font-size:12px;font-weight:900;letter-spacing:.3px}
 
 /* HEADER + LOGO */
-.header{position:sticky;top:0;z-index:50;background:rgba(247,242,234,.92);backdrop-filter:saturate(110%) blur(8px);border-bottom:1px solid rgba(0,0,0,.06)}
+.header{position:sticky;top:0;z-index:50;background:transparent;border-bottom:1px solid transparent;transition:background .35s ease,border-color .35s ease,box-shadow .35s ease,backdrop-filter .35s ease}
+.header.scrolled{background:rgba(247,242,234,.92);border-bottom:1px solid rgba(0,0,0,.06);backdrop-filter:saturate(110%) blur(8px);box-shadow:0 8px 24px rgba(0,0,0,.12)}
 .header__inner{display:flex;align-items:center;justify-content:space-between;padding:12px 0;gap:12px}
 .brand{display:flex;align-items:center;gap:10px;min-width:0}
 .brand__logo{
@@ -95,7 +96,7 @@ h1,h2,h3,h4,.brand__title{font-family:'Playfair Display',Georgia,serif}
   content:"";
   position:absolute;
   inset:0;
-  background:linear-gradient(180deg, rgba(16,7,6,.78) 0%, rgba(20,9,10,.28) 50%, rgba(11,5,4,.82) 100%);
+  background:linear-gradient(180deg, rgba(247,242,234,.88) 0%, rgba(35,19,17,.18) 42%, rgba(11,5,4,.82) 100%);
   pointer-events:none;
 }
 .hero__content{position:absolute;left:0;right:0;bottom:0;padding:26px;color:#fff;text-shadow:0 2px 16px rgba(0,0,0,.35);z-index:1}
