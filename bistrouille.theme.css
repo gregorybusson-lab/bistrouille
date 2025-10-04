@@ -161,8 +161,8 @@ h1,h2,h3,h4,.brand__title{font-family:'Playfair Display',Georgia,serif}
   z-index:1;
 }
 .hero__content{
-  position:absolute;left:50%;top:48%;
-  transform:translate(-50%, -52%);
+  position:absolute;left:50%;top:44%;
+  transform:translate(-50%, -55%);
   width:min(var(--container),92vw);
   padding:clamp(48px,10vw,120px) clamp(24px,6vw,64px);
   color:#fff;
@@ -178,7 +178,7 @@ h1,h2,h3,h4,.brand__title{font-family:'Playfair Display',Georgia,serif}
 .hero__ctas .btn--primary:hover{filter:brightness(1.04)}
 .hero__ctas .btn--ghost{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.28);color:#fff}
 .hero__ctas .btn--ghost:hover{background:rgba(255,255,255,.2);box-shadow:0 24px 46px rgba(0,0,0,.32)}
-.downwrap{position:relative;z-index:3;display:flex;justify-content:center;margin-top:-60px;padding-bottom:14px}
+.downwrap{position:relative;z-index:3;display:flex;justify-content:center;margin-top:-40px;padding-bottom:18px}
 .down{background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.45);color:#fff;border-radius:999px;padding:12px 20px;display:inline-flex;align-items:center;gap:10px;font-weight:900;box-shadow:0 20px 44px rgba(0,0,0,.35);backdrop-filter:blur(6px);animation:floaty 3.8s ease-in-out infinite}
 .down svg{width:18px;height:18px}
 
