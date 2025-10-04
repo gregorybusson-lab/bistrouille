@@ -48,8 +48,9 @@ h1,h2,h3,h4,.brand__title{font-family:'Playfair Display',Georgia,serif}
 .tag{display:inline-block;padding:6px 10px;border-radius:999px;background:rgba(122,15,31,.08);color:var(--brand);font-size:12px;font-weight:900;letter-spacing:.3px}
 
 /* HEADER + LOGO */
-.header{position:sticky;top:0;z-index:50;background:transparent;border-bottom:1px solid transparent;transition:background .35s ease,border-color .35s ease,box-shadow .35s ease,backdrop-filter .35s ease}
-.header.scrolled{background:rgba(247,242,234,.92);border-bottom:1px solid rgba(0,0,0,.06);backdrop-filter:saturate(110%) blur(8px);box-shadow:0 8px 24px rgba(0,0,0,.12)}
+.header{position:sticky;top:0;z-index:60;background:transparent;border-bottom:1px solid transparent;color:#f8f5ef;transition:background .35s ease,border-color .35s ease,box-shadow .35s ease,backdrop-filter .35s ease,color .35s ease}
+.header a,.header .phone span,.header svg{color:inherit;fill:inherit;stroke:currentColor;transition:color .35s ease,fill .35s ease,stroke .35s ease}
+.header.scrolled{background:rgba(247,242,234,.93);border-bottom:1px solid rgba(0,0,0,.06);backdrop-filter:saturate(110%) blur(8px);box-shadow:0 8px 24px rgba(0,0,0,.12);color:var(--ink)}
 .header__inner{display:flex;align-items:center;justify-content:space-between;padding:12px 0;gap:12px}
 .brand{display:flex;align-items:center;gap:10px;min-width:0}
 .brand__logo{
@@ -57,15 +58,33 @@ h1,h2,h3,h4,.brand__title{font-family:'Playfair Display',Georgia,serif}
   background-image:url('https://lebistrouille.fr/logo_bistrouille_transparent.png');
   background-size:contain;background-position:center;background-repeat:no-repeat;
 }
-.brand__title{font-size:20px;margin:0;white-space:nowrap;text-overflow:ellipsis;overflow:hidden;color:#3f2c26}
+.brand__title{font-size:20px;margin:0;white-space:nowrap;text-overflow:ellipsis;overflow:hidden;color:inherit}
 .nav{display:flex}
-.nav__list{display:flex;gap:20px;list-style:none;margin:0;padding:0}
-.nav__link{font-weight:700}
+.nav__list{display:flex;gap:24px;list-style:none;margin:0;padding:0}
+.nav__link{font-weight:700;font-size:13px;letter-spacing:.18em;text-transform:uppercase;position:relative;transition:opacity .25s ease}
+.nav__link::after{content:"";position:absolute;left:0;right:0;bottom:-6px;height:2px;background:currentColor;opacity:0;transform:scaleX(.6);transform-origin:center;transition:opacity .25s ease,transform .25s ease}
+.nav__link:hover{opacity:.82}
+.nav__link:hover::after{opacity:1;transform:scaleX(1)}
 .toolbar{display:flex;align-items:center;gap:10px}
-.iconbtn{display:inline-flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:10px;border:1px solid rgba(0,0,0,.12);background:#fff}
+.iconbtn{display:inline-flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:10px;border:1px solid rgba(0,0,0,.12);background:#fff;color:inherit}
+.header .btn--primary{
+  background:rgba(255,255,255,.12);
+  border:1px solid rgba(255,255,255,.38);
+  color:#fff;
+  box-shadow:0 16px 30px rgba(0,0,0,.32);
+  backdrop-filter:blur(4px);
+}
+.header .btn--primary:hover{background:rgba(255,255,255,.22)}
+.header.scrolled .btn--primary{
+  background:linear-gradient(180deg,var(--brand),var(--brand-600));
+  border:1px solid var(--brand);
+  color:#fff;
+  box-shadow:0 10px 24px rgba(122,15,31,.25);
+}
 .phone{font-weight:900}
 .burger{display:none;flex-direction:column;gap:4px;background:none;border:0}
 .burger span{width:22px;height:2px;background:var(--ink)}
+.header:not(.scrolled) .burger span{background:#fff}
 @media (max-width:900px){
   .nav{display:none}
   .burger{display:flex}
@@ -79,7 +98,7 @@ h1,h2,h3,h4,.brand__title{font-family:'Playfair Display',Georgia,serif}
 .drawer li{border-bottom:1px solid rgba(0,0,0,.08)}
 .drawer a{display:block;padding:12px 4px;font-weight:700}
 /* HERO — image immersive + overlay + lisibilité */
-.hero{margin-top:8px}
+.hero{margin-top:0}
 .hero__wrap{position:relative;border-radius:26px;overflow:hidden;box-shadow:var(--shadow);isolation:isolate}
 .hero__media{
   position:relative;
@@ -96,13 +115,18 @@ h1,h2,h3,h4,.brand__title{font-family:'Playfair Display',Georgia,serif}
   content:"";
   position:absolute;
   inset:0;
-  background:linear-gradient(180deg, rgba(247,242,234,.88) 0%, rgba(35,19,17,.18) 42%, rgba(11,5,4,.82) 100%);
+  background:linear-gradient(180deg, rgba(6,5,8,.88) 0%, rgba(19,14,12,.72) 36%, rgba(22,16,14,.48) 62%, rgba(22,15,13,.24) 82%, rgba(22,15,13,0) 100%);
   pointer-events:none;
 }
-.hero__content{position:absolute;left:0;right:0;bottom:0;padding:26px;color:#fff;text-shadow:0 2px 16px rgba(0,0,0,.35);z-index:1}
-.hero__title{margin:0 0 8px;font-size:clamp(28px,4vw,52px);line-height:1.05;font-weight:800}
-.hero__subtitle{margin:0 0 12px;max-width:65ch;opacity:.95}
-.hero__ctas{display:flex;gap:12px;flex-wrap:wrap;margin-top:8px}
+.hero__content{position:absolute;left:0;right:0;bottom:10%;padding:clamp(28px,6vw,52px);color:#fff;text-shadow:0 18px 38px rgba(0,0,0,.45),0 1px 0 rgba(0,0,0,.25);z-index:1;display:flex;flex-direction:column;gap:18px;max-width:min(560px,60vw)}
+.hero__title{margin:0;font-size:clamp(36px,5vw,66px);line-height:1.04;font-weight:800}
+.hero__subtitle{margin:0;max-width:62ch;font-size:clamp(16px,2vw,21px);color:rgba(255,255,255,.86)}
+.hero__ctas{display:flex;gap:14px;flex-wrap:wrap;margin-top:6px}
+.hero__ctas .btn{box-shadow:0 16px 36px rgba(0,0,0,.35);border-radius:999px;padding:13px 22px}
+.hero__ctas .btn--primary{background:linear-gradient(135deg,#c9932b,#b47511);border:0;box-shadow:0 18px 38px rgba(201,147,43,.35)}
+.hero__ctas .btn--primary:hover{filter:brightness(1.05)}
+.hero__ctas .btn--ghost{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.32);color:#fff}
+.hero__ctas .btn--ghost:hover{background:rgba(255,255,255,.18);box-shadow:0 20px 40px rgba(0,0,0,.28)}
 .downwrap{display:flex;justify-content:center;margin-top:10px}
 .down{background:#fff;border:2px solid var(--brand);color:var(--brand);border-radius:999px;padding:10px 14px;display:inline-flex;align-items:center;gap:10px;font-weight:900;box-shadow:var(--shadow)}
 .down svg{width:18px;height:18px}
@@ -205,19 +229,17 @@ html,body{overflow-x:hidden}
 }
 
 .hero__content{
-  padding:40px 6vw 34px;           /* respirations larges */
-  text-shadow:0 12px 28px rgba(0,0,0,.45), 0 1px 0 rgba(0,0,0,.25);
+  padding:clamp(28px,6vw,52px);
 }
-.hero__title{font-size:clamp(34px,6vw,68px); line-height:1.02; font-weight:800;}
-.hero__subtitle{max-width:72ch; font-size:clamp(15px,1.8vw,20px); opacity:.98;}
-.hero__ctas .btn{transform:none; box-shadow:0 12px 30px rgba(122,15,31,.28)}
 .downwrap{margin-top:16px}
 .down{border-width:2px}
 
 /* Mobile : garde le plein écran sans scroll latéral */
 @media(max-width:768px){
   .hero__media{min-height:82vh;}
-  .hero__content{padding:22px}
+  .hero__content{bottom:0;padding:30px 22px 36px;max-width:100%;gap:14px}
+  .hero__title{font-size:clamp(30px,8vw,42px)}
+  .hero__subtitle{font-size:16px}
 }
 
 @media (min-width:900px) and (prefers-reduced-motion: no-preference){
@@ -227,7 +249,7 @@ html,body{overflow-x:hidden}
 /* === Header socials : liens typographiques sobres === */
 .toolbar a.iconbtn{
   width:auto; height:auto; border:0; background:none; box-shadow:none;
-  padding:0; margin:0 8px; font-weight:800; color:var(--ink); opacity:.9;
+  padding:0; margin:0 8px; font-weight:800; color:inherit; opacity:.9;
 }
 .toolbar a.iconbtn:hover{opacity:1; text-decoration:underline;}
 /* si tu veux garder seulement l’icône téléphone “outline”, on le laisse tel quel */
