@@ -6,20 +6,16 @@
   /* Header scrolled + parallaxe hero (fluide) */
   const header = $('.header');
   const hero = $('.hero__media');
-  const PARALLAX_RATIO = -0.28;
+  const parallaxDisabled = true;
   const mediaMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
   const mediaDesktop = window.matchMedia('(min-width: 900px)');
   let ticking = false;
-  let parallaxDisabled = mediaMotion.matches;
   let bgIsFixed = false;
 
   function refreshParallaxMode(){
     if(!hero) return;
     bgIsFixed = window.getComputedStyle(hero).backgroundAttachment === 'fixed';
-    parallaxDisabled = mediaMotion.matches;
-    if(bgIsFixed || parallaxDisabled){
-      hero.style.removeProperty('--hero-parallax');
-    }
+    hero.style.removeProperty('--hero-parallax');
   }
 
   mediaMotion.addEventListener?.('change', refreshParallaxMode);
@@ -34,8 +30,7 @@
       window.requestAnimationFrame(()=>{
         if(header) header.classList.toggle('scrolled', window.scrollY>40);
         if(hero && !bgIsFixed && !parallaxDisabled){
-          const y = Math.max(-320, Math.min(320, window.scrollY * PARALLAX_RATIO));
-          hero.style.setProperty('--hero-parallax', `${y}px`);
+          hero.style.removeProperty('--hero-parallax');
         }
         ticking = false;
       });
