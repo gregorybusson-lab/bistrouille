@@ -81,13 +81,24 @@ h1,h2,h3,h4,.brand__title{font-family:'Playfair Display',Georgia,serif}
 .hero{margin-top:8px}
 .hero__wrap{position:relative;border-radius:26px;overflow:hidden;box-shadow:var(--shadow);isolation:isolate}
 .hero__media{
+  position:relative;
   min-height:76vh;
-  background-size:cover;background-position:center;
-  background-image:
-    linear-gradient(180deg, rgba(20,9,10,.38) 0%, rgba(20,9,10,.55) 70%, rgba(20,9,10,.62) 100%),
-    url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=2000&q=80');
+  background-size:cover;
+  background-position:center var(--hero-parallax, 0px);
+  background-repeat:no-repeat;
+  background-image:url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=2400&q=80');
+  background-attachment:scroll;
+  overflow:hidden;
+  will-change:transform;
 }
-.hero__content{position:absolute;left:0;right:0;bottom:0;padding:26px;color:#fff;text-shadow:0 2px 16px rgba(0,0,0,.35)}
+.hero__media::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(180deg, rgba(16,7,6,.78) 0%, rgba(20,9,10,.28) 50%, rgba(11,5,4,.82) 100%);
+  pointer-events:none;
+}
+.hero__content{position:absolute;left:0;right:0;bottom:0;padding:26px;color:#fff;text-shadow:0 2px 16px rgba(0,0,0,.35);z-index:1}
 .hero__title{margin:0 0 8px;font-size:clamp(28px,4vw,52px);line-height:1.05;font-weight:800}
 .hero__subtitle{margin:0 0 12px;max-width:65ch;opacity:.95}
 .hero__ctas{display:flex;gap:12px;flex-wrap:wrap;margin-top:8px}
@@ -189,11 +200,7 @@ html,body{overflow-x:hidden}
 .hero__wrap{border-radius:0; box-shadow:none;}
 .hero__media{
   min-height:92vh;                 /* quasi plein écran */
-  background-position:center 0;    /* base pour parallaxe */
-  /* visuel + overlay plus contrasté (remplace si tu veux une autre image) */
-  background-image:
-    linear-gradient(180deg, rgba(15,7,8,.35) 0%, rgba(15,7,8,.55) 70%, rgba(15,7,8,.65) 100%),
-    url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=2400&q=80');
+  background-position:center var(--hero-parallax, 0px);
 }
 
 .hero__content{
@@ -210,6 +217,10 @@ html,body{overflow-x:hidden}
 @media(max-width:768px){
   .hero__media{min-height:82vh;}
   .hero__content{padding:22px}
+}
+
+@media (min-width:900px) and (prefers-reduced-motion: no-preference){
+  .hero__media{background-attachment:fixed;}
 }
 
 /* === Header socials : liens typographiques sobres === */
