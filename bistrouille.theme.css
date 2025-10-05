@@ -149,6 +149,18 @@ h1,h2,h3,h4,.brand__title{font-family:'Playfair Display',Georgia,serif}
   min-height:calc(100vh - var(--header-h));
   overflow:hidden;
 }
+.hero + section{margin-top:0}
+.hero__wrap{
+  position:relative;
+  z-index:2;
+  width:min(var(--container) + 120px, 95vw);
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  gap:20px;
+  color:#fff;
+  min-height:calc(100vh - clamp(110px,16vh,160px) - 72px);
+}
 .hero__wrap{
   position:relative;
   z-index:2;
