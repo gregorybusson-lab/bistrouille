@@ -188,7 +188,7 @@ h1,h2,h3,h4,.brand__title{font-family:'Playfair Display',Georgia,serif}
   content:"";
   position:absolute;
   inset:0;
-  background:linear-gradient(180deg, rgba(6,5,7,.88) 0%, rgba(18,14,16,.65) 32%, rgba(30,22,19,.35) 58%, rgba(247,242,234,0) 88%);
+  background:linear-gradient(180deg, rgba(5,4,6,1) 0%, rgba(18,14,16,.68) 30%, rgba(30,22,19,.38) 58%, rgba(247,242,234,0) 88%);
 }
 .hero__content{
   position:relative;
