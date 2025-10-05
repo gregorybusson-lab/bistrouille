@@ -21,6 +21,7 @@ html,body{overflow-x:hidden}
   --shadow:0 12px 28px rgba(0,0,0,.12);
   --container:1100px;
   --header-h:96px;
+  --safe-top: env(safe-area-inset-top, 0px);
 }
 
 /* TYPO */
@@ -141,8 +142,8 @@ h1,h2,h3,h4,.brand__title{font-family:'Playfair Display',Georgia,serif}
 .hero{
   position:relative;
   width:100vw;
-  margin:calc(-1 * var(--header-h)) calc(50% - 50vw) 0;
-  padding:calc(var(--header-h) + clamp(48px,10vh,120px)) 0 56px;
+  margin:calc(-1 * (var(--header-h) + var(--safe-top))) calc(50% - 50vw) 0;
+  padding:calc(var(--header-h) + var(--safe-top) + clamp(48px,10vh,120px)) 0 56px;
   display:flex;
   align-items:center;
   justify-content:center;
@@ -227,7 +228,7 @@ h1,h2,h3,h4,.brand__title{font-family:'Playfair Display',Georgia,serif}
 .down:hover{box-shadow:0 36px 72px rgba(0,0,0,.4);filter:brightness(1.05);}
 .down svg{width:18px;height:18px}
 @media (max-width:768px){
-  .hero{margin:calc(-1 * (var(--header-h) + 16px)) calc(50% - 50vw) 24px; padding:calc(var(--header-h) + 56px) 0 56px; min-height:auto;}
+  .hero{margin:calc(-1 * (var(--header-h) + var(--safe-top) + 12px)) calc(50% - 50vw) 24px; padding:calc(var(--header-h) + var(--safe-top) + 52px) 0 56px; min-height:auto;}
   .hero__wrap{width:94vw;min-height:auto;gap:20px}
   .hero__content{padding-inline:0;gap:18px;max-width:none}
   .hero__ctas{flex-direction:column}
