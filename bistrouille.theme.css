@@ -26,7 +26,7 @@ html,body{overflow-x:hidden}
 
 /* TYPO */
 body{font-family:'Lato',system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;color:var(--ink);background:var(--bg)}
-main{padding-top:0}
+main{padding-top:var(--header-h)}
 h1,h2,h3,h4,.brand__title{font-family:'Playfair Display',Georgia,serif}
 .section-title{margin:0 0 16px;font-size:clamp(26px,3.2vw,40px);font-weight:700;color:#3f2c26}
 /* LAYOUT générique */
