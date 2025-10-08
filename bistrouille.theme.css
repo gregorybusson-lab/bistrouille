@@ -238,7 +238,7 @@ h1,h2,h3,h4,.brand__title{font-family:'Playfair Display',Georgia,serif}
   }
   .brand{
     position: absolute;
-    top: 4px;
+    top: 8px;
     left: 50%;
     transform: translateX(-50%);
   }
@@ -249,11 +249,10 @@ h1,h2,h3,h4,.brand__title{font-family:'Playfair Display',Georgia,serif}
     width: 100%;
     justify-content: center;
     gap: 12px;
-    margin-top: 70px;
-    padding-bottom: 12px;
+    margin-top: 80px;
+    padding-bottom: 8px;
   }
-  .iconbtn{display:none}  .hero{margin-top:0}
-  .hero__wrap{border-radius:18px}
+  .iconbtn{display:none}  .hero__wrap{border-radius:18px}
   .hero__media{min-height:68vh}
   .hero__content{padding:20px}
   .hero__ctas .btn{width:100%;justify-content:center}
@@ -279,7 +278,7 @@ h1,h2,h3,h4,.brand__title{font-family:'Playfair Display',Georgia,serif}
   }
   .brand{
     position: absolute;
-    top: 4px;
+    top: 8px;
     left: 50%;
     transform: translateX(-50%);
   }
@@ -290,7 +289,7 @@ h1,h2,h3,h4,.brand__title{font-family:'Playfair Display',Georgia,serif}
     width: 100%;
     justify-content: center;
     gap: 12px;
-    margin-top: 70px;
-    padding-bottom: 12px;
+    margin-top: 80px;
+    padding-bottom: 8px;
   }
   .iconbtn{display:none}
