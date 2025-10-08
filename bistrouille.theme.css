@@ -229,27 +229,26 @@ h1,h2,h3,h4,.brand__title{font-family:'Playfair Display',Georgia,serif}
 .down svg{width:18px;height:18px}
 @media (max-width:768px){
   .header__inner{
-    position: relative;
-    padding-top: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 15px 0;
+    gap: 25px;
   }
   .brand{
-    position: absolute;
-    top: 10px;
-    left: 50%;
-    transform: translateX(-50%);
+    order: 1;
   }
   .brand__logo{
     width: 126px;
   }
   .toolbar{
+    order: 2;
     width: 100%;
     display: flex;
     justify-content: center;
     gap: 12px;
-    margin-top: 70px;
   }
-  .iconbtn{display:none}  .btn{padding:11px 14px}
-  .hero{margin-top:0}
+  .iconbtn{display:none}  .hero{margin-top:0}
   .hero__wrap{border-radius:18px}
   .hero__media{min-height:68vh}
   .hero__content{padding:20px}
@@ -267,23 +266,23 @@ h1,h2,h3,h4,.brand__title{font-family:'Playfair Display',Georgia,serif}
 
 @media (max-width:768px){
   .header__inner{
-    position: relative;
-    padding-top: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 15px 0;
+    gap: 25px;
   }
   .brand{
-    position: absolute;
-    top: 10px;
-    left: 50%;
-    transform: translateX(-50%);
+    order: 1;
   }
   .brand__logo{
     width: 126px;
   }
   .toolbar{
+    order: 2;
     width: 100%;
     display: flex;
     justify-content: center;
     gap: 12px;
-    margin-top: 70px;
   }
   .iconbtn{display:none}
