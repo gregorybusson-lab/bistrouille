@@ -234,6 +234,7 @@ h1,h2,h3,h4,.brand__title{font-family:'Playfair Display',Georgia,serif}
     flex-wrap:wrap;
     padding-top: 0;
     position: relative;
+    min-height: 110px;
   }
   .brand{
     position: absolute;
@@ -248,11 +249,10 @@ h1,h2,h3,h4,.brand__title{font-family:'Playfair Display',Georgia,serif}
     width: 100%;
     justify-content: center;
     gap: 12px;
-    margin-top: 48px;
-    padding-bottom: 8px;
+    margin-top: 70px;
+    padding-bottom: 12px;
   }
-  .iconbtn{display:none}  .btn{padding:11px 14px}
-  .hero{margin-top:0}
+  .iconbtn{display:none}  .hero{margin-top:0}
   .hero__wrap{border-radius:18px}
   .hero__media{min-height:68vh}
   .hero__content{padding:20px}
@@ -275,6 +275,7 @@ h1,h2,h3,h4,.brand__title{font-family:'Playfair Display',Georgia,serif}
     flex-wrap:wrap;
     padding-top: 0;
     position: relative;
+    min-height: 110px;
   }
   .brand{
     position: absolute;
@@ -289,7 +290,7 @@ h1,h2,h3,h4,.brand__title{font-family:'Playfair Display',Georgia,serif}
     width: 100%;
     justify-content: center;
     gap: 12px;
-    margin-top: 48px;
-    padding-bottom: 8px;
+    margin-top: 70px;
+    padding-bottom: 12px;
   }
   .iconbtn{display:none}
