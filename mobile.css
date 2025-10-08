@@ -1,0 +1,37 @@
+
+@media (max-width:768px){
+  .container{width:94vw}
+  .header__inner{
+    gap:0;
+    padding:0;
+    min-height:80px;
+    display:grid;
+    grid-template-rows: auto 1fr;
+  }
+  .brand{
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  .brand__logo{
+    width:120px;
+    margin-inline:auto;
+    margin-top: 4px;
+  }
+  .toolbar{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    padding: 0 16px;
+    margin-top: auto;
+    margin-bottom: 8px;
+  }
+  .iconbtn{display:none}
+  .btn{
+    padding:10px 14px;
+    flex: 1;
+    max-width: 160px;
+  }
+}

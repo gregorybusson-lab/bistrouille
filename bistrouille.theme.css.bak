@@ -319,7 +319,7 @@ input:focus,select:focus,textarea:focus{border-color:var(--brand);box-shadow:0 0
 /* RESPONSIVE + garde-fous mobile */
 @media (max-width:768px){
   .container{width:94vw}
-  .header__inner{gap:10px;flex-wrap:wrap;padding-top:0}
+  .header__inner{gap:10px;flex-wrap:wrap}
   .brand{flex:1;justify-content:center}
   .brand__logo{width:126px;margin-inline:auto}
   .toolbar{gap:12px}

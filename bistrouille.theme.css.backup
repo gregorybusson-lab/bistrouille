@@ -319,7 +319,7 @@ input:focus,select:focus,textarea:focus{border-color:var(--brand);box-shadow:0 0
 /* RESPONSIVE + garde-fous mobile */
 @media (max-width:768px){
   .container{width:94vw}
-  .header__inner{gap:10px;flex-wrap:wrap;padding-top:0}
+  .header__inner{gap:10px;flex-wrap:wrap}
   .brand{flex:1;justify-content:center}
   .brand__logo{width:126px;margin-inline:auto}
   .toolbar{gap:12px}
@@ -354,42 +354,3 @@ html,body{overflow-x:hidden}
 /* === Header socials : liens typographiques sobres === */
 /* (Conservé pour compatibilité, le look est géré plus haut) */
 @media (max-width:900px){.hero{padding-top:calc(var(--header-h) + var(--safe-top) + 32px)}}
-
-/* Mobile */
-@media (max-width:900px){
-  :root{--header-h:80px;}
-  
-  /* Navigation */
-  .nav{display:none}
-  .burger{
-    display:flex;
-    position:fixed;
-    top:20px;
-    right:20px;
-    z-index:90;
-  }
-  
-  /* Header */
-  .header__inner{
-    position:relative;
-    padding:15px 0;
-  }
-  
-  /* Logo */
-  .brand{
-    position:absolute;
-    left:50%;
-    transform:translateX(-50%);
-  }
-  .brand__logo{width:140px}
-  
-  /* Toolbar */
-  .toolbar{
-    margin-top:60px;
-    justify-content:center;
-    gap:10px;
-  }
-  
-  /* Hero */
-  .hero{padding-top:var(--header-h)}
-}
