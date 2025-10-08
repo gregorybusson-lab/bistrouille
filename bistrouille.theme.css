@@ -147,7 +147,7 @@ h1,h2,h3,h4,.brand__title{font-family:'Playfair Display',Georgia,serif}
   display:flex;
   align-items:center;
   justify-content:center;
-  min-height:calc(100vh - var(--header-h));
+  min-height:100vh;background:#080708;
   overflow:hidden;
 }
 .hero + section{margin-top:0}
