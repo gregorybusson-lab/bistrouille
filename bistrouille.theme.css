@@ -353,3 +353,4 @@ html,body{overflow-x:hidden}
 
 /* === Header socials : liens typographiques sobres === */
 /* (Conservé pour compatibilité, le look est géré plus haut) */
+@media (max-width:900px){.hero{padding-top:calc(var(--header-h) + var(--safe-top) + 32px)}}
