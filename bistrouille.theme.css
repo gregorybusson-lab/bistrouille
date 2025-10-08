@@ -143,7 +143,7 @@ h1,h2,h3,h4,.brand__title{font-family:'Playfair Display',Georgia,serif}
   position:relative;
   width:100vw;
   margin:calc(-1 * (var(--header-h) + var(--safe-top))) calc(50% - 50vw) 0;
-  padding:calc(var(--header-h) + var(--safe-top) + clamp(48px,10vh,120px)) 0 56px;
+  padding:calc(var(--header-h) + var(--safe-top) + clamp(24px,6vh,48px)) 0 56px;
   display:flex;
   align-items:center;
   justify-content:center;
