@@ -133,11 +133,11 @@ h1,h2,h3,h4,.brand__title{font-family:'Playfair Display',Georgia,serif}
 }
 
 /* Drawer mobile */
-.drawer{position:fixed;top:calc(var(--header-h) - 6px);right:4vw;width:min(520px,92vw);background:var(--surface);border-radius:16px;box-shadow:var(--shadow);display:none}
+.drawer{position:fixed;top:calc(var(--header-h) - 6px);right:4vw;width:min(520px,92vw);background:var(--surface);border-radius:16px;box-shadow:var(--shadow);display:none;color:var(--ink)}
 .drawer--open{display:block}
 .drawer ul{list-style:none;margin:0;padding:16px}
 .drawer li{border-bottom:1px solid rgba(0,0,0,.08)}
-.drawer a{display:block;padding:12px 4px;font-weight:700}
+.drawer a{display:block;padding:12px 4px;font-weight:700;color:var(--ink)}
 /* HERO — plein écran, transition header noir → fond crème */
 .hero{
   position:relative;
