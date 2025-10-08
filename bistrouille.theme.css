@@ -229,11 +229,8 @@ h1,h2,h3,h4,.brand__title{font-family:'Playfair Display',Georgia,serif}
 .down svg{width:18px;height:18px}
 @media (max-width:768px){
   .header__inner{
-    gap:10px;
-    flex-wrap:wrap;
-    padding-top: 0;
     position: relative;
-    min-height: 120px;
+    min-height: 110px;
   }
   .brand{
     position: absolute;
@@ -245,11 +242,8 @@ h1,h2,h3,h4,.brand__title{font-family:'Playfair Display',Georgia,serif}
     width:126px;
   }
   .toolbar{
-    position: absolute;
-    bottom: 10px;
-    left: 0;
-    right: 0;
-    display: flex;
+    margin-top: 80px;
+    width: 100%;
     justify-content: center;
     gap: 12px;
   }
@@ -272,11 +266,8 @@ h1,h2,h3,h4,.brand__title{font-family:'Playfair Display',Georgia,serif}
 
 @media (max-width:768px){
   .header__inner{
-    gap:10px;
-    flex-wrap:wrap;
-    padding-top: 0;
     position: relative;
-    min-height: 120px;
+    min-height: 110px;
   }
   .brand{
     position: absolute;
@@ -288,11 +279,8 @@ h1,h2,h3,h4,.brand__title{font-family:'Playfair Display',Georgia,serif}
     width:126px;
   }
   .toolbar{
-    position: absolute;
-    bottom: 10px;
-    left: 0;
-    right: 0;
-    display: flex;
+    margin-top: 80px;
+    width: 100%;
     justify-content: center;
     gap: 12px;
   }
